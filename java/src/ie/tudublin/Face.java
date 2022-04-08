@@ -1,8 +1,10 @@
 package ie.tudublin;
 
-import processing.core.PApplet;
 
-public class Face extends PApplet {
+public class Face extends Visual{
+    
+    WaveAfterWave waw;
+
     public void settings()
     {
         size(1024, 500);
@@ -13,6 +15,20 @@ public class Face extends PApplet {
         // Use this to make fullscreen and use P3D for 3D graphics
         //fullScreen(P3D, SPAN); 
     }
+    
+    public void setup()
+    {
+        startMinim();
+                
+        // Call loadAudio to load an audio file to process 
+        loadAudio("agate.mp3");   
+
+        
+        // Call this instead to read audio from the microphone
+        //startListening(); 
+        
+        waw = new WaveAfterWave(this);
+    }
 
 
     void drawEyes() {
@@ -21,6 +37,9 @@ public class Face extends PApplet {
 
         //Left Eye
         arc( 324, 100, 300, 300, radians(50), radians(180), OPEN);
+
+        //Pupils
+
 
 	}
 
@@ -56,12 +75,21 @@ public class Face extends PApplet {
         }
     }
 
-    
+    public void keyPressed()
+    {
+        if (key == 'a')
+        {
+            getAudioPlayer().cue(0);
+            getAudioPlayer().play();
+        }
+    }
+
     public void draw() {
 		background(0);
 		fill(255);
         drawMouth();	
 		drawEyes();
+        waw.render();
         
 	}
 }
