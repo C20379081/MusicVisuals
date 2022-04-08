@@ -59,7 +59,7 @@ public class MyVisual extends Visual
 
         // Call this is you want to get the average amplitude
         calculateAverageAmplitude();        
-        wf.render();
+        //wf.render();
         abv.render();
     }
 }
