@@ -6,6 +6,7 @@ public class Face extends Visual{
     
     WaveAfterWave waw;
     DancyTeeth dt;
+    StrobeBack sb;
     PImage img;
 
     public void settings()
@@ -31,6 +32,7 @@ public class Face extends Visual{
         
         waw = new WaveAfterWave(this);
         dt = new DancyTeeth(this);
+        sb = new StrobeBack(this);
     }
 
 
@@ -72,6 +74,7 @@ public class Face extends Visual{
 		drawEyes();
         waw.render();
         dt.drawTeeth();
+        sb.backColour();
         
 	}
 }
