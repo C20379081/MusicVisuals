@@ -74,7 +74,7 @@ public class Face extends Visual{
 		drawEyes();
         waw.render();
         dt.drawTeeth();
-        sb.backColour();
+       //sb.backColour();
         
 	}
 }
