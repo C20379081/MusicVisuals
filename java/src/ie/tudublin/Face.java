@@ -8,6 +8,7 @@ public class Face extends Visual{
     DancyTeeth dt;
     StrobeBack sb;
     PImage img;
+    Spikes sp;
 
     public void settings()
     {
@@ -33,6 +34,7 @@ public class Face extends Visual{
         waw = new WaveAfterWave(this);
         dt = new DancyTeeth(this);
         sb = new StrobeBack(this);
+        sp = new Spikes(this);
     }
 
 
@@ -64,17 +66,59 @@ public class Face extends Visual{
             getAudioPlayer().cue(0);
             getAudioPlayer().play();
         }
+
+
     }
 
     public void draw() {
         
+        /*
 		background(0);
 		fill(255);
+        try
+        {
+            // Call this if you want to use FFT data
+            calculateFFT(); 
+        }
+        catch(VisualException e)
+        {
+            e.printStackTrace();
+        }
+        // Call this is you want to use frequency bands
+        calculateFrequencyBands(); 
         drawMouth();	
 		drawEyes();
         waw.render();
         dt.drawTeeth();
-       //sb.backColour();
+        sp.freqSpike();
+        */
+        for(int i = 0 ; i < getBands().length ; i ++)
+        {
+            background(0);
+            fill(255);
+            try
+            {
+                // Call this if you want to use FFT data
+                calculateFFT(); 
+            }
+            catch(VisualException e)
+            {
+                e.printStackTrace();
+            }
+            // Call this is you want to use frequency bands
+            calculateFrequencyBands(); 
+            drawMouth();	
+            drawEyes();
+            waw.render();
+            dt.drawTeeth();
+            sp.freqSpike();
+
+            if(getSmoothedBands()[i] * 0.65f > 28)
+            {
+                background(255);
+            }
+
+        }
         
 	}
 }
