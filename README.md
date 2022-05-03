@@ -1,8 +1,12 @@
 # Music Visualiser Project
 
-Name:
+Name: 
 
 Student Number: 
+C20379081 - Harry O'Donnell
+C20376686 - Matthew Jungmann
+C20485612 - Dylan Nolan
+
 
 ## Instructions
 - Fork this repository and use it a starter project for your assignment
