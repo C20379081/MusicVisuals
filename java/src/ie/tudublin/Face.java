@@ -113,7 +113,7 @@ public class Face extends Visual{
             dt.drawTeeth();
             sp.freqSpike();
 
-            if(getSmoothedBands()[i] * 0.65f > 28)
+            if(getSmoothedBands()[i] * 0.65f > 29)
             {
                 background(255);
             }

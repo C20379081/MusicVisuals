@@ -19,7 +19,6 @@ public class DancyTeeth extends Visual {
         float x1 = teethStart;
         float x2 = teethStart + teethWidth;
         float x3 = teethStart + halfTeethWidth;
-        float x4 = teethStart;
 
         float y1 = 311;
         float y2 = 310 + teethHeight;
