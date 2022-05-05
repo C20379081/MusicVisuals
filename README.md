@@ -23,6 +23,92 @@ Overall we are very pleased with the outcome and we feel we have learnt many new
 Press 'a' to begin the music, this starts the visuals.
 
 # How it works
+-The face, eyes, teeth and spikes are drawn 
+```Java
+drawEyes()
+drawMouth()
+drawTeeth()
+freqSpike()
+```
+
+-Song loads and plays
+```Java
+loadAudio("agate.mp3");
+```
+
+-The eyes react and expand to the amplitude
+```Java
+public void render()
+    {
+        fc.calculateAverageAmplitude();
+        fc.colorMode(PApplet.RGB);
+        fc.stroke(255);
+
+        //Right Eye - a masterpiece
+        fc.fill(0, 50, 170);        
+        fc.circle(740, 200, fc.getSmoothedAmplitude() * 600);
+        fc.fill(255, 255, 255);  
+        fc.circle(740, 200, fc.getSmoothedAmplitude() * 300);
+        fc.fill(180, 215, 242);  
+        fc.circle(740, 200, fc.getSmoothedAmplitude() * 250);
+        fc.fill(0);  
+        fc.circle(740, 200, fc.getSmoothedAmplitude() * 100);
+
+        //Left Eye - a masterpiece
+        fc.fill(0, 50, 170);        
+        fc.circle(284, 200, fc.getSmoothedAmplitude() * 600);
+        fc.fill(255, 255, 255);  
+        fc.circle(284, 200, fc.getSmoothedAmplitude() * 300);
+        fc.fill(180, 215, 242);  
+        fc.circle(284, 200, fc.getSmoothedAmplitude() * 250);
+        fc.fill(0); 
+        fc.circle(284, 200, fc.getSmoothedAmplitude() * 100);
+    }
+```
+
+-The teeth move and color react to the amplitude
+```Java
+for(float i = teethStart; i < teethEnd; i += teethWidth)
+        {
+            fc.fill(j * (fc.getSmoothedAmplitude() * 5), 255, 255);
+
+            if(teethStart == i)
+            {
+                y2 += 25;
+            }
+            if(teethEnd - teethWidth == i)
+            {
+                y2 += 25;
+            }
+
+            fc.triangle(x1, y1, x2, y1, x3, y2 + (fc.getSmoothedAmplitude() * 200));
+
+            x1 += teethWidth;
+            x2 += teethWidth;
+            x3 += teethWidth;
+            
+            j+=20;
+            y2 = 310 + teethHeight;
+        }
+```
+
+-The spikes move and react to the frequency bands 
+```Java
+public void freqSpike(){
+        float gap = fc.width / ((float) fc.getBands().length * 2);
+        fc.noStroke();
+        for(int i = 0 ; i < fc.getBands().length ; i ++)
+        {
+            fc.fill(PApplet.map(i, 0, fc.getBands().length, 255, 0), 255, 255);
+           
+            // Left spikes
+            fc.triangle(0, (fc.height - gap) - i * gap, 0, gap, fc.getSmoothedBands()[i] * 0.65f, i * gap / 2);
+            
+            // Right spikes
+            fc.triangle(fc.width, (fc.height - gap) - i * gap, fc.width, gap, fc.width - fc.getSmoothedBands()[i] * 0.65f, i * gap / 2);
+        }   
+    }
+```
 
 # What I am most proud of in the assignment
 There are two areas of this assignment that we are the most proud of, one relating to the actual coding, and one relating to how we went about the project.
