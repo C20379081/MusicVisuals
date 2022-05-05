@@ -31,4 +31,5 @@ When we began this assignment, there was a clear vision of what we wanted the en
 
 Coding wise the colour changing teeth are our favourite part of the assignment. It was an area that we found a bit confusing, but once we managed to get it working, it was very satisfying. We created the teeth using a loop, and then made the fangs by adding additional height to the teeth by adding ifs to identify the first and last. Originally we had the colour of the teeth change with the frequency of the music but after testing, we realised that it looks significantly better when it reacts with amplitude.
 
-
+# Video URL
+https://www.youtube.com/watch?v=ccmXxjAdPO4
